@@ -37,8 +37,13 @@ function M.setup(config)
 
     local palette = {
         selection = {
+            -- Default
             foreground = colors.smoky_black,
             background = colors.anti_flash_white,
+
+            -- Custom
+            --[[ foreground = colors.anti_flash_white, ]]
+            --[[ background = colors.dark_charcoal, ]]
         },
         background = {
             medium = colors.smoky_black,
@@ -72,6 +77,7 @@ function M.setup(config)
         brightest = { fg = palette.foreground.brightest, em = 'none' },
         brightest_bold = { fg = palette.foreground.brightest, em = 'bold' },
     }
+
     local higlight_groups = {
         Normal = groups.normal,
 
@@ -87,7 +93,9 @@ function M.setup(config)
         Search = groups.selection,
         Substitute = groups.selection,
 
-        MatchParen = groups.selection,
+        -- braces, brackets
+        --[[ MatchParen = groups.selection, ]]
+        MatchParen = { fg = colors.anti_flash_white, bg = colors.dark_charcoal, em = "bold" },
 
         ModeMsg = groups.brighter,
         MoreMsg = groups.brighter,
@@ -97,6 +105,7 @@ function M.setup(config)
         LineNrAbove = groups.darkest,
         LineNrBelow = groups.darkest,
         CursorLineNr = groups.darker,
+        --[[ CursorLineNr = { fg = groups.darker.fg, bg = palette.background.medium }, ]]
 
         StatusLine = { fg = palette.foreground.medium, bg = palette.background.brighter },
         StatusLineNC = { fg = palette.foreground.darkest, bg = palette.background.brighter },
@@ -151,7 +160,7 @@ function M.setup(config)
         String = groups.brighter_italic,
         Structure = groups.brighter,
         Tag = groups.medium,
-        Todo = groups.brightest,
+        Todo = { fg = colors.chinese_silver, bg = colors.dark_charcoal, em = "bold" },
         Type = groups.brighter,
         Typedef = groups.brighter,
 
