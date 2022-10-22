@@ -33,6 +33,8 @@ function M.setup(config)
         chinese_silver = cc.chinese_silver or '#CCCCCC',
         anti_flash_white = cc.anti_flash_white or '#F2F2F2',
         white = cc.white or '#FFFFFF',
+
+        tomato = '#E9635E',
     }
 
     local palette = {
@@ -255,6 +257,11 @@ function M.setup(config)
 
         -- Netrw
         netrwMarkFile = { bg = palette.background.brightest },
+
+        -- GitSigns
+        GitSignsAdd = { fg = colors.chinese_silver },
+        GitSignsChange = { fg = colors.gray  },
+        GitSignsDelete = { fg = colors.tomato },
     }
 
     for group, set in pairs(higlight_groups) do
