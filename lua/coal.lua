@@ -71,6 +71,7 @@ function M.setup(config)
         darker_italic = { fg = palette.foreground.darker, em = 'italic' },
         dimmed = { fg = palette.foreground.dimmed },
         dimmed_italic = { fg = palette.foreground.dimmed, em = 'italic' },
+        dimmed_bold = { fg = palette.foreground.dimmed, em = 'bold' },
         medium = { fg = palette.foreground.medium },
         medium_italic = { fg = palette.foreground.medium, em = 'italic' },
         medium_underline = { fg = palette.foreground.medium, em = 'underline' },
@@ -81,7 +82,7 @@ function M.setup(config)
     }
 
     local higlight_groups = {
-        Normal = groups.normal,
+        Normal = groups.normal, -- Normal text
 
         Bold = { em = 'bold' },
         Italic = { em = 'italic' },
@@ -106,6 +107,7 @@ function M.setup(config)
         LineNr = groups.dimmed,
         LineNrAbove = groups.darkest,
         LineNrBelow = groups.darkest,
+        CursorLine = { bg = palette.background.brightest }, -- Screen-line at the cursor, when 'cursorline' is set.  Low-priority if foreground (ctermfg OR guifg) is not set.
         CursorLineNr = groups.darker,
         --[[ CursorLineNr = { fg = groups.darker.fg, bg = palette.background.medium }, ]]
 
@@ -262,6 +264,12 @@ function M.setup(config)
         GitSignsAdd = { fg = colors.chinese_silver },
         GitSignsChange = { fg = colors.gray  },
         GitSignsDelete = { fg = colors.tomato },
+
+        -- NvimTree
+        NvimTreeCursorLine = { bg = palette.background.brightest },
+        NvimTreeNormal = groups.normal,
+        NvimTreeRootFolder = groups.dimmed_bold,
+        NvimTreeSpecialFile = groups.medium_underline,
     }
 
     for group, set in pairs(higlight_groups) do
